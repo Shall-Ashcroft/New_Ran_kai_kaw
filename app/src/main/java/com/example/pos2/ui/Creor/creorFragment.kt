@@ -107,23 +107,19 @@ class CreorFragment : Fragment() {
         editor.apply()
     }
 
+
     private fun loadOrders() {
         val sharedPreferences = requireActivity().getSharedPreferences("order_data", Context.MODE_PRIVATE)
         val gson = Gson()
         val json = sharedPreferences.getString("orders", null)
         val type = object : TypeToken<MutableList<Order>>() {}.type
+        orderList.clear()
+        orderList.addAll(gson.fromJson(json, type) ?: mutableListOf())
 
-        try {
-            // ตรวจสอบว่า json ไม่เป็น null และสามารถแปลงเป็น List ได้
-            if (json != null) {
-                orderList.clear()
-                orderList.addAll(gson.fromJson(json, type) ?: mutableListOf())
-            }
-        } catch (e: Exception) {
-            Toast.makeText(requireContext(), "เกิดข้อผิดพลาดในการโหลดข้อมูล", Toast.LENGTH_SHORT).show()
+        // ตรวจสอบว่า Adapter ถูกสร้างแล้วก่อนเรียก notifyDataSetChanged()
+        if (::orderAdapter.isInitialized) {
+            orderAdapter.notifyDataSetChanged()
         }
-
-        orderAdapter.notifyDataSetChanged()
     }
 
     override fun onDestroyView() {

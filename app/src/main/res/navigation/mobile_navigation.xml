@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/nav_orlist"
-        android:name="com.example.pos2.ui.orderlist.OrderlistFragment"
+        android:name="com.example.pos2.ui.orderlist.OrderListFragment"
         android:label="OrderList"
         tools:layout="@layout/fragment_orlist" />
 
