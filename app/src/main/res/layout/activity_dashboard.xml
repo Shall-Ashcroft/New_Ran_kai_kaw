@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp">
+
+
+    <TextView
+        android:id="@+id/tvEarnings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Earnings: $0.00"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvIngredientsStock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvEarnings"
+        android:layout_marginTop="8dp"
+        android:text="Ingredients in stock: 0"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvTotalOrders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvIngredientsStock"
+        android:layout_marginTop="8dp"
+        android:text="Total orders: 0"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvFeedback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTotalOrders"
+        android:layout_marginTop="8dp"
+        android:text="Feedback: 0"
+        android:textSize="18sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewOrders"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tvFeedback"
+        android:layout_marginTop="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+
+</RelativeLayout>

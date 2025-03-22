@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
 import com.example.pos2.databinding.ActivityLoginBinding
 import com.example.pos2.MainActivity
+import com.example.pos2.utils.PermissionManager
 
 class LoginActivity : AppCompatActivity() {
 
@@ -29,6 +30,10 @@ class LoginActivity : AppCompatActivity() {
 
             if (userInput == "Admin" && passInput == "password") {
                 val intent = Intent(this, MainActivity::class.java)
+                // Somewhere in your login or registration activity, after validating the user as an admin
+                val permissionManager = PermissionManager(this)
+                permissionManager.setAdminPermission(true)  // Set to 'true' if the user is an admin
+
                 startActivity(intent)
                 finish()
             } else {

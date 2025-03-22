@@ -13,7 +13,7 @@ import com.example.pos2.ui.orderlist.OrderAdapter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-data class Order(val productName: String, val quantity: Int, val price: Float)
+data class Order(val productName: String, val quantity: Int, val price: Int)
 
 class CreorFragment : Fragment() {
 
@@ -67,7 +67,7 @@ class CreorFragment : Fragment() {
                 return
             }
 
-            val newOrder = Order(productName, quantity, price)
+            val newOrder = Order(productName, quantity, price.toInt())
             orderList.add(newOrder)
             saveOrders()
 

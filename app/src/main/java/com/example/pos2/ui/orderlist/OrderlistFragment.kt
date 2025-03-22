@@ -17,6 +17,7 @@ class OrderListFragment : Fragment() {
     private var _binding: FragmentOrlistBinding? = null
     private val binding get() = _binding!!
 
+
     private lateinit var orderAdapter: OrderAdapter
     private val orderList = mutableListOf<Order>()
 
@@ -41,7 +42,7 @@ class OrderListFragment : Fragment() {
     }
 
 
-    private fun loadOrders() {
+    protected fun loadOrders() {
         val sharedPreferences = requireActivity().getSharedPreferences("order_data", Context.MODE_PRIVATE)
         val gson = Gson()
         val json = sharedPreferences.getString("orders", null)
