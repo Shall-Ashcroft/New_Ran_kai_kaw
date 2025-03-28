@@ -24,6 +24,12 @@ class OrderAdapter(
             onDeleteClick(position)
         }
     }
+    fun updateOrders(newOrders: MutableList<com.example.pos2.ui.Creor.Order>) {
+        orderList.clear()
+        orderList.addAll(newOrders)
+        notifyDataSetChanged() // รีเฟรชข้อมูล
+    }
+
 
     override fun getItemCount(): Int = orderList.size
 

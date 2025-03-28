@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
 }
 
 android {
@@ -35,10 +36,13 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        compose = true
     }
 }
 
 dependencies {
+    implementation("androidx.navigation:navigation-fragment-ktx:2.3.5")
+    implementation("androidx.navigation:navigation-ui-ktx:2.3.5")
     implementation("com.google.code.gson:gson:2.10.1")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -49,7 +53,18 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.annotation)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.activity.compose)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.material3)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+    debugImplementation(libs.androidx.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest)
 }

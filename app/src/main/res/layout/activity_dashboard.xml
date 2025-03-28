@@ -1,52 +1,94 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="16dp">
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/white">
 
-
-    <TextView
-        android:id="@+id/tvEarnings"
-        android:layout_width="wrap_content"
+    <!-- CardView สำหรับข้อมูล Dashboard -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Earnings: $0.00"
-        android:textSize="18sp" />
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="6dp"
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/tvIngredientsStock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvEarnings"
-        android:layout_marginTop="8dp"
-        android:text="Ingredients in stock: 0"
-        android:textSize="18sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvTotalOrders"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvIngredientsStock"
-        android:layout_marginTop="8dp"
-        android:text="Total orders: 0"
-        android:textSize="18sp" />
+            <TextView
+                android:id="@+id/tvEarnings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Earnings: ฿0.00"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/tvFeedback"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvTotalOrders"
-        android:layout_marginTop="8dp"
-        android:text="Feedback: 0"
-        android:textSize="18sp" />
+            <TextView
+                android:id="@+id/tvIngredientsStock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Ingredients in stock: 0"
+                android:textSize="18sp"
+                android:textColor="@color/black" />
 
+            <TextView
+                android:id="@+id/tvTotalOrders"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Total orders: 0"
+                android:textSize="18sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvFeedback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Feedback: 0"
+                android:textSize="18sp"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- RecyclerView สำหรับแสดงรายการออเดอร์ -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewOrders"
         android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:padding="8dp"
+        android:background="@android:color/white"/>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/tvFeedback"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/mobile_navigation" />
+
+
+    <!-- ปุ่ม Logout -->
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:textSize="16sp"
+        android:textColor="@color/white"
         android:layout_marginTop="16dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        android:layout_marginBottom="16dp"/>
 
-
-</RelativeLayout>
+</LinearLayout>

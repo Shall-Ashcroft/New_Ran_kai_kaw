@@ -1,12 +1,14 @@
 package com.example.pos2.ui.login
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
-import com.example.pos2.databinding.ActivityLoginBinding
+import androidx.appcompat.app.AppCompatActivity
 import com.example.pos2.MainActivity
-import com.example.pos2.utils.PermissionManager
+import com.example.pos2.databinding.ActivityLoginBinding
+import com.example.pos2.ui.dashboard.DashboardActivity
+import com.example.pos2.ui.register.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -21,24 +23,39 @@ class LoginActivity : AppCompatActivity() {
         val username = binding.username
         val password = binding.password
         val login = binding.login
+        val registerButton = binding.registerButton
 
-        login.isEnabled = true
-
+        // การตั้งค่า Login Button
         login.setOnClickListener {
             val userInput = username.text.toString().trim()
             val passInput = password.text.toString().trim()
 
-            if (userInput == "Admin" && passInput == "password") {
-                val intent = Intent(this, MainActivity::class.java)
-                // Somewhere in your login or registration activity, after validating the user as an admin
-                val permissionManager = PermissionManager(this)
-                permissionManager.setAdminPermission(true)  // Set to 'true' if the user is an admin
-
-                startActivity(intent)
+            if (validateLogin(userInput, passInput)) {
+                if (userInput.equals("Admin", ignoreCase = true)) {
+                    val intent = Intent(this, DashboardActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                }
                 finish()
             } else {
                 Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show()
             }
         }
+
+        // การตั้งค่า Register Button
+        registerButton.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    // ฟังก์ชันตรวจสอบบัญชีที่ลงทะเบียนไว้
+    private fun validateLogin(username: String, password: String): Boolean {
+        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+        val savedPassword = sharedPreferences.getString(username, null) // ดึงรหัสผ่านที่บันทึกไว้
+
+        return savedPassword != null && savedPassword == password // ตรวจสอบว่าตรงกับข้อมูลที่บันทึกไว้
     }
 }

@@ -14,9 +14,11 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.Pos2.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    <!-- ธีมที่ไม่มี ActionBar และพื้นหลังสีขาว -->
+    <style name="Theme.Pos2.NoActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/white</item> <!-- พื้นหลังสีขาว -->
+        <item name="android:statusBarColor">@android:color/white</item> <!-- สีของแถบสถานะ -->
+        <item name="android:navigationBarColor">@android:color/white</item> <!-- สีของแถบนำทาง -->
     </style>
 
     <style name="Theme.Pos2.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
