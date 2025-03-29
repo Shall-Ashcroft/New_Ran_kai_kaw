@@ -30,10 +30,19 @@ class LoginActivity : AppCompatActivity() {
             val passInput = password.text.toString().trim()
 
             if (validateLogin(userInput, passInput)) {
+                val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+
                 if (userInput.equals("Admin", ignoreCase = true)) {
+                    editor.putBoolean("is_admin", true) // ตั้งให้ Admin = true
+                    editor.apply()
+
                     val intent = Intent(this, DashboardActivity::class.java)
                     startActivity(intent)
                 } else {
+                    editor.putBoolean("is_admin", false) // ตั้งให้ User ธรรมดา
+                    editor.apply()
+
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                 }
@@ -49,11 +58,10 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    // ฟังก์ชันตรวจสอบบัญชีที่ลงทะเบียนไว้
     private fun validateLogin(username: String, password: String): Boolean {
         val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-        val savedPassword = sharedPreferences.getString(username, null) // ดึงรหัสผ่านที่บันทึกไว้
+        val savedPassword = sharedPreferences.getString(username, null)
 
-        return savedPassword != null && savedPassword == password // ตรวจสอบว่าตรงกับข้อมูลที่บันทึกไว้
+        return savedPassword != null && savedPassword == password
     }
 }
