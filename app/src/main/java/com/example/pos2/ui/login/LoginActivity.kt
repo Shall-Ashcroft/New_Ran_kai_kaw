@@ -25,7 +25,6 @@ class LoginActivity : AppCompatActivity() {
         val login = binding.login
         val registerButton = binding.registerButton
 
-        // การตั้งค่า Login Button
         login.setOnClickListener {
             val userInput = username.text.toString().trim()
             val passInput = password.text.toString().trim()
@@ -44,7 +43,6 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        // การตั้งค่า Register Button
         registerButton.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)

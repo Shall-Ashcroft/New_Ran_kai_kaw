@@ -44,13 +44,13 @@ class RegisterActivity : AppCompatActivity() {
     private fun registerUser(username: String, password: String): Boolean {
         val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
         if (sharedPreferences.contains(username)) {
-            return false // ถ้าชื่อผู้ใช้มีอยู่แล้วให้ return false
+            return false
         }
 
         val editor = sharedPreferences.edit()
-        editor.putString(username, password) // บันทึกชื่อผู้ใช้และรหัสผ่าน
+        editor.putString(username, password)
         editor.apply()
 
-        return true // ลงทะเบียนสำเร็จ
+        return true
     }
 }

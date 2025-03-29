@@ -7,7 +7,6 @@
     android:padding="16dp"
     android:background="@color/white">
 
-    <!-- CardView สำหรับข้อมูล Dashboard -->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -61,26 +60,6 @@
 
     </androidx.cardview.widget.CardView>
 
-    <!-- RecyclerView สำหรับแสดงรายการออเดอร์ -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewOrders"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:padding="8dp"
-        android:background="@android:color/white"/>
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/nav_host_fragment"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:defaultNavHost="true"
-        app:navGraph="@navigation/mobile_navigation" />
-
-
-    <!-- ปุ่ม Logout -->
     <Button
         android:id="@+id/btnLogout"
         android:layout_width="match_parent"

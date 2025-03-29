@@ -39,7 +39,7 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, "UserDB", null, 1) 
             isAdmin // 1 = Admin, 0 = User
         } else {
             cursor.close()
-            -1 // ไม่พบผู้ใช้
+            -1
         }
     }
 

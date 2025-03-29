@@ -39,12 +39,29 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        // กดปุ่ม Logout ใน Navigation Drawer
         navView.menu.findItem(R.id.nav_logout).setOnMenuItemClickListener {
             logout()
             true
         }
+
+        // ตรวจสอบสิทธิ์การเข้าถึงเมนู (Admin หรือไม่)
+        checkUserRole(navView)
     }
+
+    private fun checkUserRole(navView: NavigationView) {
+        val isAdmin = checkIfAdmin()  // ฟังก์ชันที่ตรวจสอบว่าเป็น Admin หรือไม่
+
+        // เปลี่ยนการแสดงผลเมนูใน Navigation Drawer
+        navView.menu.findItem(R.id.nav_menu_management).isVisible = isAdmin
+        navView.menu.findItem(R.id.nav_dashboard).isVisible = !isAdmin  // ซ่อน Dashboard สำหรับ Admin
+    }
+
+    private fun checkIfAdmin(): Boolean {
+        // ตรวจสอบว่าเป็น Admin หรือไม่
+        // ใช้ SharedPreferences หรือวิธีการอื่นๆ ในการเก็บข้อมูลผู้ใช้
+        return true // หรือ false หากผู้ใช้ไม่ใช่ Admin
+    }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main, menu)
@@ -57,7 +74,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun logout() {
-        // กลับไปหน้า Login และเคลียร์ Stack
         val intent = Intent(this, LoginActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)

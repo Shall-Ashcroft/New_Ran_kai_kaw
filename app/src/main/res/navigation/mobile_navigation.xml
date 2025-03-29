@@ -24,5 +24,11 @@
         android:label="Dashboard"
         tools:layout="@layout/activity_dashboard" />
 
+    <fragment
+    android:id="@+id/nav_menu_management"
+    android:name="com.example.pos2.ui.menu.MenuManagementFragment"
+    android:label="Menu Management"
+    tools:layout="@layout/fragment_menu_management" />
+
 
 </navigation>

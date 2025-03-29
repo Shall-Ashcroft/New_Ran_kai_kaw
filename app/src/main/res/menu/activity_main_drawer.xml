@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
@@ -7,9 +6,10 @@
         <item
             android:id="@+id/nav_dashboard"
             android:title="Dashboard"
-            android:visible="false"/> <!-- ซ่อนเมนู Dashboard ไว้ก่อน -->
-
-
+            android:visible="false"/>
+        <item
+            android:id="@+id/nav_menu_management"
+            android:title="Menu Management"/>
         <item
             android:id="@+id/nav_creor"
             android:icon="@drawable/ic_menu_camera"
@@ -21,6 +21,5 @@
         <item
             android:id="@+id/nav_logout"
             android:title="Logout"/>
-
     </group>
 </menu>
