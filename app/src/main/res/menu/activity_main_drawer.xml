@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_dashboard"
+            android:title="Dashboard"
+            android:visible="false"/>
+        <item
+            android:id="@+id/nav_menu_management"
+            android:title="Menu Management"/>
+        <item
+            android:id="@+id/nav_creor"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="CreateOrder" />
+        <item
+            android:id="@+id/nav_orlist"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Orderlist" />
+        <item
+            android:id="@+id/nav_menulist"
+            android:title="MenuList"/>
+        <item
+            android:id="@+id/nav_logout"
+            android:title="Logout"/>
+    </group>
+</menu>

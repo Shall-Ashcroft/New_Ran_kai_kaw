@@ -1,0 +1,72 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="32dp"
+    android:gravity="center"
+    android:background="@android:color/white">
+
+    <!-- Title or Heading -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textSize="28sp"
+        android:textColor="#000000"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="sans-serif-medium"
+        android:layout_gravity="center"/>
+
+    <!-- Username field -->
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+        android:padding="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/edittext_border"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        android:inputType="text" />
+
+
+    <!-- Password field -->
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:textSize="16sp"
+        android:padding="16dp"
+        android:layout_marginTop="8dp"
+        android:inputType="textPassword"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/edittext_border"
+        android:textColor="#000000"
+        android:textColorHint="#000000"/>
+
+    <!-- Login button -->
+    <Button
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textColor="#FF4081"
+        android:background="@android:color/transparent"
+        android:textSize="16sp"
+        android:layout_gravity="center"/>
+
+    <!-- Register button -->
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:textColor="#FF4081"
+        android:background="@android:color/transparent"
+        android:textSize="16sp"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

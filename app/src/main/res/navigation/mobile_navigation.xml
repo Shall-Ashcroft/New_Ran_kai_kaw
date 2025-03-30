@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_creor">
+
+    <fragment
+        android:id="@+id/nav_creor"
+        android:name="com.example.pos2.ui.Creor.CreorFragment"
+        android:label="CreateOrder"
+        tools:layout="@layout/fragment_creor" />
+
+    <fragment
+        android:id="@+id/nav_orlist"
+        android:name="com.example.pos2.ui.orderlist.OrderListFragment"
+        android:label="OrderList"
+        tools:layout="@layout/fragment_orlist" />
+
+
+    <fragment
+        android:id="@+id/nav_dashboard"
+        android:name="com.example.pos2.ui.dashboard.DashboardFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+
+    <fragment
+        android:id="@+id/nav_menulist"
+        android:name="com.example.pos2.ui.menu.MenuListFragment"
+        android:label="Menu"
+        tools:layout="@layout/fragment_menu_list" />
+
+
+    <fragment
+    android:id="@+id/nav_menu_management"
+    android:name="com.example.pos2.ui.menu.MenuManagementFragment"
+    android:label="Menu"
+    tools:layout="@layout/fragment_menu_management" />
+
+
+</navigation>

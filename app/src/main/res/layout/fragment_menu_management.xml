@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/menu_management_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Menu Management"
+        android:textSize="24sp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- EditText for Menu Name -->
+    <EditText
+        android:id="@+id/edtMenuName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Menu Name"
+        android:padding="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Button to Add Menu -->
+    <Button
+        android:id="@+id/btnAddMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Menu"
+        android:layout_marginTop="16dp"
+        android:padding="16dp"/>
+
+    <!-- RecyclerView to show list of menus -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMenuList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp"/>
+
+</LinearLayout>
